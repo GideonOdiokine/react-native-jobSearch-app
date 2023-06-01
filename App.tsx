@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import {COLORS, icons, images} from './constants';
 import {ScreenHeaderBtn} from './components';
-import JobDetails from './screens/job-details/[id]';
+import JobDetails from './screens/job-details/JobDetails';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
