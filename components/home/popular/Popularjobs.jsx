@@ -17,7 +17,7 @@ const Popularjobs = () => {
    query: 'React developer',
    num_pages: 1,
  });
- console.log(data);
+//  console.log(data);
 
   return (
     <View style={styles.container}>
@@ -35,8 +35,9 @@ const Popularjobs = () => {
         ) : (
           <FlatList
             data={data}
-            renderItem={({item,i}) => <PopularJobCard key={i} item={item} />}
-            keyExtractor={item => item}
+            renderItem={({item, i}) => <PopularJobCard key={i} item={item} />}
+            keyExtractor={item => item.id}
+            // key={item.id}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{columnGap: SIZES.medium}}

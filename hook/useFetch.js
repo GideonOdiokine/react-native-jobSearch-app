@@ -12,7 +12,7 @@ export const useFetch = (url, query) => {
     url: `https://jsearch.p.rapidapi.com/${url}`,
     headers: {
       'content-type': 'application/octet-stream',
-      'X-RapidAPI-Key': 'a500ad9533mshd1b3fcf7accba7bp1714d3jsn8a7563b014bb',
+      'X-RapidAPI-Key': '016a142e8dmsh3d1fead2cddff98p151922jsn077769793157',
       'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
     },
     params: {...query},
@@ -22,7 +22,7 @@ export const useFetch = (url, query) => {
     setLoading(true);
     try {
       const response = await axios.request(options);
-      console.log(response);
+    //   console.log(response);
       setData(response.data.data);
       setLoading(false);
     } catch (error) {

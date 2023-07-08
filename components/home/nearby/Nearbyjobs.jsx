@@ -30,9 +30,13 @@ const Nearbyjobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          data?.map((job,i)=> (
-            <NearbyJobCard job={job} key={`nearby-job-${i}`}
-             handleNavigation={() => navigation.navigate("JobDetails", {id: job.id})}
+          data?.map((job, i) => (
+            <NearbyJobCard
+              job={job}
+              key={`nearby-job-${i}`}
+              handleNavigation={() =>
+                navigation.navigate('JobDetails', {id: job?.job_id})
+              }
             />
           ))
         )}
