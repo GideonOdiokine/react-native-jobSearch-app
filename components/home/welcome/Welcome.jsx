@@ -14,7 +14,7 @@ import {icons, SIZES} from '../../../constants';
 
 const jobTypes = ['Full-time', 'Part-time', 'Contractor'];
 
-const Welcome = () => {
+const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
   const navigation = useNavigation();
   const [activeJobTab, setActiveJobTab] = React.useState('Full-time');
   return (
@@ -27,11 +27,12 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=""
+            value={searchTerm}
             placeholder="What are you looking for?"
+            onChangeText={text => setSearchTerm(text)}
           />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
           <Image
             source={icons.search}
             resizeMode="contain"
@@ -47,7 +48,7 @@ const Welcome = () => {
               style={styles.tab(activeJobTab, item)}
               onPress={() => {
                 setActiveJobTab(item);
-                navigation.navigate('search', {jobType: item});
+                navigation.navigate('SearchScreen', {jobType: item});
               }}>
               <Text style={styles.tabText(activeJobTab, item)}>{item}</Text>
             </TouchableOpacity>

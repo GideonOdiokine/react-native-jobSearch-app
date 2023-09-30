@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import {COLORS, icons, images} from './constants';
 import {ScreenHeaderBtn} from './components';
 import JobDetails from './screens/job-details/JobDetails';
+import SearchScreen from './screens/search/SearchScreen';
 
 
 const App = () => {
@@ -23,11 +24,7 @@ const App = () => {
             headerShadowVisible: false,
             headerTitle: '',
             headerLeft: () => (
-              <ScreenHeaderBtn
-                iconUrl={icons.menu}
-                dimension="60%"
-
-              />
+              <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
             ),
             headerRight: () => (
               <ScreenHeaderBtn iconUrl={images.profile} dimension="60%" />
@@ -43,11 +40,31 @@ const App = () => {
             headerBackVisible: false,
             headerTitle: '',
             headerLeft: () => (
-              <ScreenHeaderBtn iconUrl={icons.left} dimension="60%" goBack={true} />
+              <ScreenHeaderBtn
+                iconUrl={icons.left}
+                dimension="60%"
+                goBack={true}
+              />
             ),
             headerRight: () => (
               <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
             ),
+          }}
+        />
+        <Stack.Screen
+          name="SearchScreen"
+          component={SearchScreen}
+          options={{
+            headerStyle: {backgroundColor: COLORS.lightWhite},
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <ScreenHeaderBtn
+                iconUrl={icons.left}
+                dimension="60%"
+                goBack={true}
+              />
+            ),
+            headerTitle: '',
           }}
         />
       </Stack.Navigator>

@@ -10,14 +10,23 @@ import {
 import styles from './popularjobs.style';
 import {COLORS, SIZES} from '../../../constants';
 import PopularJobCard from '../../common/cards/popular/PopularJobCard';
-import { useFetch } from '../../../hook/useFetch';
+import {useFetch} from '../../../hook/useFetch';
+import {useNavigation} from '@react-navigation/native';
 
 const Popularjobs = () => {
- const {data, loading, error} = useFetch('search', {
-   query: 'React developer',
-   num_pages: 1,
- });
-//  console.log(data);
+  const navigation = useNavigation();
+
+  const {data, loading, error} = useFetch('search', {
+    query: 'React developer',
+    num_pages: 1,
+  });
+
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = item => {
+    navigation.navigate('JobDetails', {id: item?.job_id});
+    setSelectedJob(item.job_id);
+  };
 
   return (
     <View style={styles.container}>
@@ -35,7 +44,14 @@ const Popularjobs = () => {
         ) : (
           <FlatList
             data={data}
-            renderItem={({item, i}) => <PopularJobCard key={i} item={item} />}
+            renderItem={({item, i}) => (
+              <PopularJobCard
+                key={i}
+                item={item}
+                selectedJob={selectedJob}
+                handleCardPress={handleCardPress}
+              />
+            )}
             keyExtractor={item => item.job_id}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
