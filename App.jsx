@@ -43,7 +43,7 @@ const App = () => {
             headerBackVisible: false,
             headerTitle: '',
             headerLeft: () => (
-              <ScreenHeaderBtn iconUrl={icons.left} dimension="60%" />
+              <ScreenHeaderBtn iconUrl={icons.left} dimension="60%" goBack={true} />
             ),
             headerRight: () => (
               <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />

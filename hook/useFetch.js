@@ -12,7 +12,7 @@ export const useFetch = (url, query) => {
     url: `https://jsearch.p.rapidapi.com/${url}`,
     headers: {
       'content-type': 'application/octet-stream',
-      'X-RapidAPI-Key': '016a142e8dmsh3d1fead2cddff98p151922jsn077769793157',
+      'X-RapidAPI-Key': '047f813d36msh5162c2cd0894432p1a120djsna7d80332f036',
       'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
     },
     params: {...query},
